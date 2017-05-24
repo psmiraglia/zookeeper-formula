@@ -12,4 +12,6 @@ zookeeper:
         syncLimit: 5
         dataDir: /tmp/zookeeper
         clientPort: 2181
+    service: zookeeper
+    java_home: /opt/java/jdk1.8.0_131
 
