@@ -6,3 +6,10 @@ zookeeper:
     version: "3.4.10"
     mirror: "http://archive.apache.org/dist"
     home: /opt/zookeeper
+    config:
+        tickTime: 2000
+        initLimit: 10
+        syncLimit: 5
+        dataDir: /tmp/zookeeper
+        clientPort: 2181
+
