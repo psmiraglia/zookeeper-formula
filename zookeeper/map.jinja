@@ -14,7 +14,7 @@
 
 {% set zk = salt['pillar.get'](
         'zookeeper',
-        default=default_settings.kafka,
+        default=default_settings.zookeeper,
         merge=True
     )
 %}
