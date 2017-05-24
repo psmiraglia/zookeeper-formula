@@ -9,11 +9,11 @@ create_zookeeper_user:
     user.present:
         - name: {{ zk.user }}
         - groups:
-        - {{ zk.group }}
+            - {{ zk.group }}
         - fullname: Zookeeper User
         - shell: /bin/false
         - empty_password: True
         - system: True
         - home: /var/lib/{{ zk.user }}
         - require:
-        - group: create_zookeeper_group
+            - group: create_zookeeper_group
