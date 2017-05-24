@@ -2,3 +2,7 @@ zookeeper:
     # user and group
     user: zookeeper
     group: zookeeper
+    # version
+    version: "3.4.10"
+    mirror: "http://archive.apache.org/dist"
+    home: /opt/zookeeper
