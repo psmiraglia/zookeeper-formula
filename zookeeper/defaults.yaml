@@ -1,0 +1,4 @@
+zookeeper:
+    # user and group
+    user: zookeeper
+    group: zookeeper
