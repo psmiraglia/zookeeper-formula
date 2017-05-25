@@ -8,7 +8,6 @@ After=network.target remote-fs.target
 
 [Service]
 Type=forking
-PIDFile={{ zk.home }}/zookeeper.pid
 User={{ zk.user }}
 Group={{ zk.group }}
 {%- for key, value in zk.env_vars.iteritems() | sort %}
