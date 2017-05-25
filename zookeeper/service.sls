@@ -6,7 +6,7 @@ zookeeper_systemd_unit:
         - source: salt://zookeeper/templates/service.jinja
         - template: jinja
         - context:
-            zookeeper: {{ zookeeper }}
+            zk: {{ zk }}
 
     module.run:
         - name: service.systemctl_reload

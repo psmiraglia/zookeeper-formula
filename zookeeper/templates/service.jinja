@@ -7,17 +7,18 @@ Requires=network.target remote-fs.target
 After=network.target remote-fs.target
 
 [Service]
-Type=simple
-PIDFile={{ zookeeper.home }}/zookeeper.pid
-User={{ zookeeper.user }}
-Group={{ zookeeper.group }}
-Environment="JAVA_HOME={{ zookeeper.java_home }}"
-Environment="ZOO_LOG4J_PROP=INFO,ROLLINGFILE"
-ExecStart={{ zookeeper.home }}/bin/zkServer.sh start-foreground
-ExecStop={{ zookeeper.home }}/bin/zkServer.sh stop
+Type=forking
+User={{ zk.user }}
+Group={{ zk.group }}
+{%- for key, value in zk.env_vars.iteritems() | sort %}
+Environment="{{ key }}={{ value }}"
+{%- endfor %}
+ExecStart={{ zk.home }}/bin/zkServer.sh start
+ExecStop={{ zk.home }}/bin/zkServer.sh stop
+ExecReload={{ zk.home }}/bin/zkServer.sh restart
 Restart=on-failure
-SyslogIdentifier={{ zookeeper.service }}
-WorkingDirectory={{ zookeeper.home  }}
+SyslogIdentifier={{ zk.service }}
+WorkingDirectory={{ zk.home  }}
 
 [Install]
 WantedBy=multi-user.target
