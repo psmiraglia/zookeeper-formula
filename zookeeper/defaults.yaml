@@ -1,0 +1,19 @@
+zookeeper:
+    # user and group
+    user: zookeeper
+    group: zookeeper
+    # version
+    version: "3.4.10"
+    mirror: "http://archive.apache.org/dist"
+    home: /opt/zookeeper
+    config:
+        tickTime: 2000
+        initLimit: 10
+        syncLimit: 5
+        dataDir: /tmp/zookeeper
+        clientPort: 2181
+    service: zookeeper
+    env_vars:
+        JAVA_HOME: /opt/java/jdk1.8.0_131
+        ZOO_LOG4J_PROP: INFO,ROLLINGFILE
+
